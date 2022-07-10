@@ -1,11 +1,11 @@
 function(copy_citra_Qt5_deps target_dir)
     include(WindowsCopyFiles)
     set(DLL_DEST "${CMAKE_BINARY_DIR}/bin/$<CONFIG>/")
-    set(Qt5_DLL_DIR "${Qt5_DIR}/../../../bin")
-    set(Qt5_PLATFORMS_DIR "${Qt5_DIR}/../../../plugins/platforms/")
-    set(Qt5_MEDIASERVICE_DIR "${Qt5_DIR}/../../../plugins/mediaservice/")
-    set(Qt5_STYLES_DIR "${Qt5_DIR}/../../../plugins/styles/")
-    set(Qt5_IMAGEFORMATS_DIR "${Qt5_DIR}/../../../plugins/imageformats/")
+    set(Qt6_DLL_DIR "${Qt5_DIR}/../../../bin")
+    set(Qt6_PLATFORMS_DIR "${Qt5_DIR}/../../../plugins/platforms/")
+    set(Qt6_MEDIASERVICE_DIR "${Qt5_DIR}/../../../plugins/mediaservice/")
+    set(Qt6_STYLES_DIR "${Qt5_DIR}/../../../plugins/styles/")
+    set(Qt6_IMAGEFORMATS_DIR "${Qt5_DIR}/../../../plugins/imageformats/")
     set(PLATFORMS ${DLL_DEST}plugins/platforms/)
     set(MEDIASERVICE ${DLL_DEST}plugins/mediaservice/)
     set(STYLES ${DLL_DEST}plugins/styles/)
@@ -14,19 +14,19 @@ function(copy_citra_Qt5_deps target_dir)
         icudt*.dll
         icuin*.dll
         icuuc*.dll
-        Qt5Core$<$<CONFIG:Debug>:d>.*
-        Qt5Gui$<$<CONFIG:Debug>:d>.*
-        Qt5Widgets$<$<CONFIG:Debug>:d>.*
-        Qt5Multimedia$<$<CONFIG:Debug>:d>.*
-        Qt5Network$<$<CONFIG:Debug>:d>.*
+        Qt6Core$<$<CONFIG:Debug>:d>.*
+        Qt6Gui$<$<CONFIG:Debug>:d>.*
+        Qt6Widgets$<$<CONFIG:Debug>:d>.*
+        Qt6Multimedia$<$<CONFIG:Debug>:d>.*
+        Qt6Network$<$<CONFIG:Debug>:d>.*
     )
-    windows_copy_files(citra-qt ${Qt5_PLATFORMS_DIR} ${PLATFORMS} qwindows$<$<CONFIG:Debug>:d>.*)
-    windows_copy_files(citra-qt ${Qt5_MEDIASERVICE_DIR} ${MEDIASERVICE}
+    windows_copy_files(citra-qt ${Qt6_PLATFORMS_DIR} ${PLATFORMS} qwindows$<$<CONFIG:Debug>:d>.*)
+    windows_copy_files(citra-qt ${Qt6_MEDIASERVICE_DIR} ${MEDIASERVICE}
         dsengine$<$<CONFIG:Debug>:d>.*
         wmfengine$<$<CONFIG:Debug>:d>.*
     )
-    windows_copy_files(citra-qt ${Qt5_STYLES_DIR} ${STYLES} qwindowsvistastyle$<$<CONFIG:Debug>:d>.*)
-    windows_copy_files(${target_dir} ${Qt5_IMAGEFORMATS_DIR} ${IMAGEFORMATS}
+    windows_copy_files(citra-qt ${Qt6_STYLES_DIR} ${STYLES} qwindowsvistastyle$<$<CONFIG:Debug>:d>.*)
+    windows_copy_files(${target_dir} ${Qt6_IMAGEFORMATS_DIR} ${IMAGEFORMATS}
         qgif$<$<CONFIG:Debug>:d>.dll
         qicns$<$<CONFIG:Debug>:d>.dll
         qico$<$<CONFIG:Debug>:d>.dll
@@ -43,4 +43,4 @@ function(copy_citra_Qt5_deps target_dir)
     add_custom_command(TARGET citra-qt POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E touch ${DLL_DEST}qt.conf
     )
-endfunction(copy_citra_Qt5_deps)
+endfunction(copy_citra_Qt6_deps)
