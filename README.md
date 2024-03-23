@@ -41,3 +41,5 @@ We happily accept monetary donations or donated games and hardware. Please see o
 * Infrastructure setup
 
 We also more than gladly accept used 3DS consoles! If you would like to give yours away, don't hesitate to join our [Discord server](https://citra-emu.org/discord/) and talk to bunnei.
+
+Link to archive doc [Wayback](https://web.archive.org/web/20240228001639/https://citra-emu.org/wiki/building-for-windows)
